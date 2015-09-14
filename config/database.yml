@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+
+development:
+  <<: *default
+  database: shortcode_test_development
+
+test:
+  <<: *default
+  database: shortcode_test_test
+
+production:
+  <<: *default
+  database: shortcode_test_production
+  username: shortcode_test
+  password: <%= ENV['SHORTCODE_TEST_DATABASE_PASSWORD'] %>
